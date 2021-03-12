@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <body>
+        <h2> Exercise 3 - JSF - Contacts</h2>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="firstName"> Nombre </h:outputLabel>
+                <h:inputText id="firstName" value="#{ formContact.contact.firstName}" />
+                <h:outputLabel for="lastName"> Apellido </h:outputLabel>
+                <h:inputText id="lastName" value="#{ formContact.contact.lastName}" />
+                <h:outputLabel for="email"> Email </h:outputLabel>
+                <h:inputText id="email" value="#{ formContact.contact.email}" />
+                <h:outputLabel for="mobileNumber"> Teléfono </h:outputLabel>
+                <h:inputText id="mobileNumber" value="#{ formContact.contact.mobileNumber}" />
+            </h:panelGrid>
+            <h:commandButton action="#{ formContact.createContact }" value=" Crear" rendered="#{ formContact.isCreationWay() }"/>
+            <h:commandButton action="#{ formContact.updateContact }" value="Actualizar" rendered="#{ !formContact.isCreationWay() }"/>
+            <h:commandButton action="#{ formContact.clearContact }" value="limpiar" />
+        </h:form>
+    </body>
+</html>
